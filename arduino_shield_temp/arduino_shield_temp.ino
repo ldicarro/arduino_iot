@@ -20,7 +20,7 @@ DeviceAddress sensorDeviceAddress;    // get the 64-bit address of the sensor
 uint8_t mac[6] = {0xAA,0x02,0xBC,0x04,0xDE,0x06};
 
 // setting the ip address for the ethernet shield
-IPAddress ip(192,168,254,50); // use an ip on your network
+IPAddress ip(192,168,1,110); // use an ip on your network
 EthernetServer server(80);
 
 // definitions for connecting to google.com
@@ -34,7 +34,7 @@ EthernetClient client;
 void setup() {
   Serial.begin(9600);
 
-  Ethernet.begin(mac); // start the shield with the MAC address defined above
+  Ethernet.begin(mac,ip); // start the shield with the MAC address defined above
   server.begin(); // start the server
   Serial.print("Server started at: ");  // printing out the ethernet shield's ip address
   Serial.println(Ethernet.localIP());
@@ -72,8 +72,6 @@ void loop() {
     Serial.println();
     Serial.println("disconnecting.");
     client.stop();
-    for(;;)
-      ;
   }
 
   // BONUS: the code below is so your computer can connect

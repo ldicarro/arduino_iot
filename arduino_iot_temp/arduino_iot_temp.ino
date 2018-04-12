@@ -20,7 +20,7 @@ DeviceAddress sensorDeviceAddress;
 uint8_t mac[6] = {0xAA,0x02,0xBC,0x04,0xDE,0x06};
 
 // setting the ip address for the ethernet shield
-IPAddress ip(192,168,254,50); // use an ip on your network
+IPAddress ip(192,168,1,50); // use an ip on your network
 EthernetServer server(80);
 
 // definitions for connecting to io.adafruit.com
